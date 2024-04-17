@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* CSS styles go here */
+        .contact-us {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .contact-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="tel"],
+        .contact-form input[type="email"],
+        .contact-form select,
+        .contact-form textarea {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+        }
+
+        .contact-form select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat;
+            background-position: calc(100% - 10px) center;
+            background-size: 12px;
+            padding-right: 30px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: #39ec80;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #1fd322;
+        }
+    </style>
+</head>
+<body>
+    <section class="contact-us" id="c">
+        <form class="contact-form">
+            <h3>Contact Us</h3>
+            <input type="text" id="name2" placeholder="Your Name" required>
+            <input type="tel" id="phone2" placeholder="Phone Number" required>
+            <input type="email" id="email2" placeholder="Mail Id" required>
+            <select id="interest2" required>
+                <option value="" disabled selected>Select your interest</option>
+                <option value="open_plots">Open Plots</option>
+                <option value="independent_houses">Independent Houses</option>
+                <option value="marketing">Marketing</option>
+            </select>
+            <textarea id="message2" placeholder="How Can we help you?" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Additional Code Snippet -->
+    <section class="contact-us" id="additional">
+        <div class="container">
+            <h3>Additional Section</h3>
+            <p>This is an additional section added to the page.</p>
+        </div>
+    </section>
+</body>
+</html>

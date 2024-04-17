@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS Property</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-cI9FCTc+2Fv1JNwJbVPBc6LkHwN7iCrrRk0D8nNemnktuWR3bZlDw9YXxckw1Iz5Nh9yLEW+BLpr/4hL9kBl/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('https://img.freepik.com/premium-photo/futuristic-infrastructure-smart-night-city-blue-neon-colors-connection-technology-metaverse_607202-3951.jpg?size=626&ext=jpg&ga=GA1.1.80997227.1712834462&semt=ais') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            position: justify;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            margin-top:20px
+            border-radius: 10px;
+        }
+
+        .section-box {
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.9s ease;
+            position: relative;
+            text-align: justify;
+        }
+
+        .section-box:hover {
+            transform: scale(1.05);
+        }
+
+        .section-box img {
+            width: 200px; /* Increased size */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .section-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid #dbbb91;
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 10.0s ease;
+        }
+
+        .section-box:hover::before {
+            opacity: 1;
+        }
+
+        .section-content {
+            text-align: center;
+            position: justify;
+                    }
+
+        .hero {
+            padding: 100px 0;
+            text-align: justify;
+            font-family: 'Times New Roman', serif;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('path/to/your/background/image.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            /* text-align: center; Center text */
+        }
+
+        .hero h1 {
+            font-size: 58px; /* Increased font size */
+            margin-bottom: 20px;
+            color: #39ec80;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+                        padding-top: 20px;
+            border-radius: 10px;
+            /* background-color: rgba(255, 255, 255, 0.2); */
+            display: inline-block;
+            letter-spacing: 2px;
+            text-align: left;
+        }
+
+        .hero p {
+            font-size: 26px; /* Increased font size */
+            color: #e58910;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin: auto;
+            padding-bottom: 20px;
+            border-radius: 10px;
+            text-align: left;
+            /* background-color: rgba(255, 255, 255, 0.2); */
+        }
+
+        .cta-button {
+            padding: 12px 24px;
+            background-color: #39ec80;
+            color: #e58910;
+            text-decoration: none;
+            font-size: 32px;
+            border-radius: 5px;
+            transition: background-color 0.9s ease;
+            display: inline-block;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: #ffc107;
+        }
+
+        .services,
+        .featured-properties,
+        .about-us,
+        .footer {
+            padding: 50px 0;
+            text-align: center;
+            color: #3ae3fa;
+            font-family: 'Times New Roman', serif;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services h2,
+        .featured-properties h2,
+        .about-us h2,
+         {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #ffd700;
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+
+        .services::after,
+        .featured-properties::after,
+        .about-us::after,
+        {
+            content: '';
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        .about-us::after {
+            background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('path/to/your/decorative/element.png') no-repeat center center;
+        }
+
+        
+        .footer::after {
+            background: none;
+        }
+
+        .about-text {
+            max-width: 600px;
+            text-align: justify;
+            margin: auto;
+        }
+
+        .about-text p {
+            font-size: 20px;
+            color: #a9fa3a;
+        }
+{% comment %} 
+        .contact-info {
+            text-align: justify;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #a9fa3a;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .contact-info ul li a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info ul li a:hover {
+            text-decoration: underline;
+        }
+        .contact-form textarea {
+            height: 120px;
+        } {% endcomment %}
+        .contact-form {
+            background-color: #ffffff;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+    
+        .contact-form h3 {
+            color: #39ec80;
+            text-align: center;
+        }
+    
+        .contact-form input, .contact-form select, .contact-form textarea, .contact-form button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Adds padding and border to box width */
+        }
+    
+        .contact-form button {
+            background-color: #39ec80;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        .contact-form button:hover {
+            background-color: #1fd322;
+        }             .footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 50px 0;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .footer-links ul li:last-child {
+            margin-right: 0;
+        }
+
+        .footer-links ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-links ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+            font-size: 24px;
+        }
+
+        .social-media a:hover {
+            color: #ffd700;
+        }
+
+        .owner-image { {% comment %} width: 200px; /* Set the desired width */ {% comment %} height: 200px; /* Set the desired height */ {% endcomment %} {% endcomment %} 
+        background-image: src("Demo/images/WhatsApp Image 2024-03-29 at 13.52 1.png");
+         background-size: cover;
+         /* Ensure the image covers the entire container */ 
+         background-position: center; 
+         border-radius: 50%; /* Make the image circular */
+          margin: 20px auto; 
+         float: left; /* Align the image to the left */ }
+        
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding: 0 15px; /* Added padding for smaller screens */
+            }
+        }
+
+        /* Typing Animation */
+        @keyframes typing {
+            from {
+                width: 0
+            }
+            to {
+                width: 100%
+            }
+        }
+
+        .typing-animation::after {
+            content: "";
+            margin-left: 2px;
+            display: inline-block;
+            vertical-align: center;
+            animation: typing 0.9s ;
+        }
+
+        /* Circular Logo */
+        .navbar-brand img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        /* Transparent Box */
+        .transparent-box {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: auto;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Social Media Icons */
+        .social-media-icons {
+            margin-top: 25px;
+        }
+
+        .social-media-icons a {
+            color: #a9fa3a;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .social-media-icons a:hover {
+            color: #d78a8a;
+        }
+        .b{
+            border-radius: 10px;
+            border-color: #1fd322;
+            background-color: transparent;
+        }
+        .b:hover{
+            background-color: #1fd322;
+            transition: 0.5s;
+        }
+        .contact-us {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color:#fdc547;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 400px;
+            background-color: #9ac4c2 ;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .contact-form h3 {
+            text-align: center;
+            color:#000000; 
+            margin-bottom: 20px;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="tel"],
+        .contact-form input[type="email"],
+        .contact-form select,
+        .contact-form textarea {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+        }
+
+        .contact-form select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: #ffffff;
+            background-position: #9ac4c2;
+            background-size: 12px;
+            padding-right: 30px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: #52a199;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.9s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #1fd322;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src="https://media.licdn.com/dms/image/C560BAQHnpsLqA519Tw/company-logo_200_200/0/1644979689573/sss_property_logo?e=2147483647&v=beta&t=nrCNlho1z1IGdPEcNb6H-CTw2i6rGy5VkDlqi7C5mJc"
+                    alt="SSS Property">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#s">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#a">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#c">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+      
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Welcome to SSS Property </h1>
+                    <p id="typing-animation" style="font-size: 26px; font-style: italic; font-family: cursive; text-align: justify;"></p>
+                    <a href="#c"><button class="b text-white m-3" style="width: 210px;">Contact Now</button></a>
+                    <a href="#Projects"><button class="b text-white m-3" style="width: 210px;">Visit Our Projects</button></a>
+                </div>
+                <div class="col-md-6">
+                    <img style="width: 100%;" src="./images/pngwing 1.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        const text = "Begin Your Journey to Homeownership: Trust SSS Property to Fulfill Your Dreams of Owning the Perfect Property.";
+        let index = 0;
+        const typingAnimationElement = document.getElementById("typing-animation");
+    
+        function type() {
+            if (index < text.length) {
+                typingAnimationElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 100); // Adjust the typing speed here (milliseconds)
+            }
+        }
+    
+        // Call the type function when the page loads
+        window.addEventListener('DOMContentLoaded', type);
+    </script>    <section class="services" id="s">
+        <div class="container">
+            <h2 class="text-center">Our Services</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-6"> <!-- Adjusted column sizes for responsiveness -->
+                    <div class="section-box text-center">
+                        <img src="./images/openplots.jpg" alt="" class="img-fluid"> <!-- Added Bootstrap class for responsive images -->
+                        <h3 style="color: #79e8e2; font-size: 40px;">Open Plots  </h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6"> <!-- Adjusted column sizes for responsiveness -->
+                    <div class="section-box text-center">
+                        <img src="./images/in1.jpg" alt="" class="img-fluid"> <!-- Added Bootstrap class for responsive images -->
+                        <h3 style="color: #79e8e2; font-size: 36px;">Independent Houses </h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6"> <!-- Adjusted column sizes for responsiveness -->
+                    <div class="section-box text-center">
+                        <img src="./images/m1.jpg" alt="" class="img-fluid"> <!-- Added Bootstrap class for responsive images -->
+                        <h3 style="color: #79e8e2; font-size: 40px;">Marketing </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="Projects" id="Projects">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4"> <!-- Added mb-4 class for margin bottom -->
+                    <div class="section-box transparent-box">
+                        <h2 style="color: #f15a00; font-size: 40px;"> Project 1</h2>
+                        <img src="https://img.squareyards.com/secondaryPortal/638466676358032840-2203240127152715.png" alt="Property Image">
+                        <h3 style="color: #e9e902; font-size: 40px;">Shobhakurta County</h3>
+                        <p style="color: #000000; font-size: 30px;">Open plots at IIT Hyderabad backside. 1 km to Nanded Expressway</p>
+                    </div>
+                    <div class="text-center mt-3"> <!-- Added a margin top for spacing -->
+                        <a href="./images/Shobhakrutha layout .pdf" class="btn btn-info btn-block download-btn" download>View Details</a>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4"> <!-- Added mb-4 class for margin bottom -->
+                    <div class="section-box transparent-box">
+                        <h2 style="color: #f15a00; font-size: 40px;">Project 2</h2>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvRzS5tMbFTDIOnSyF1zz4pl4q2Oq5kYINag&s" alt="Property Image">
+                        <h3 style="color: #e9e902;font-size: 40px;">MG Elite Square Homes</h3>
+                        <p style="color: #000000; font-size: 30px;">Independent Houses at Highway facing at Sangareddy .</p>
+                    </div>
+                    <div class="text-center mt-3"> <!-- Added a margin top for spacing -->
+                        <a href="./images/MG elite square homes.pdf" class="btn btn-info btn-block download-btn" download>View Details</a>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4"> <!-- Added mb-4 class for margin bottom -->
+                    <div class="section-box transparent-box">
+                        <h2 style="color:#f15a00; font-size: 40px;"> Project 3</h2>
+                        <img src="data:image/jpeg;base64,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" alt="Property Image">
+                        <h3 style="color:#e9e902;font-size: 40px;">Fortune Elights</h3>
+                        <p style="color: #000000; font-size: 30px;">Open plots at Bidar Highway . (DTCP approved layout)</p>
+                    </div>
+                    <div class="text-center mt-3"> <!-- Added a margin top for spacing -->
+                        <a href="./images/Fortuneelight Layout.pdf" class="btn btn-info btn-block download-btn" download>View Details</a>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4"> <!-- Added mb-4 class for margin bottom -->
+                    <div class="section-box transparent-box">
+                        <h2 style="color: #f15a00;font-size: 40px;"> Project 4</h2>
+                        <img src="data:image/jpeg;base64,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"alt="Property Image">
+                        <h3 style="color: #e9e902;font-size: 40px;">Urban City </h3>
+                        <p style="color: #000000; font-size: 30px;">Open plots at Zaheerabad Highway-65(DTCP approved Layout)</p>
+                    </div>
+                    <div class="text-center mt-3"> <!-- Added a margin top for spacing -->
+                        <a href="./images/Urban city.pdf" class="btn btn-info btn-block download-btn" download>View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        <section class="about-us" id="a">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="owner" style="height:400px ;">
+                        <img class="owner-image" style="height: 350px;" src="./images/WhatsApp Image 2024-03-29 at 13.52 1.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-text">
+                        <h2>About Us</h2>
+                        <p>"Welcome to SSS Property, your trusted partner in the world of real estate. With over 20 years of unparalleled experience, we pride ourselves on delivering excellence with every interaction. Our commitment to excellence has earned us a flawless reputation in the industry, with not a single negative remark from our satisfied customers. At SSS Property, we specialize in turning dreams into reality. Whether you're searching for your dream home or seeking lucrative investment opportunities, our seasoned experts are here to assist you every step of the way. With a keen understanding of market trends and a dedication to meeting your future profitable needs, you can trust SSS Property to guide you towards your ideal real estate investment. Let us leverage our expertise to help you achieve your goals and make your dreams come true."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact-us" id="c">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-info">
+                        <h2>Contact Us</h2>
+                        <p>For inquiries or appointments, please contact us:</p>
+                        <ul>
+                            <li>Call to office: <a href="tel:9988415555">9988415555</a>, <a href="tel:9949645409">9949645409</a></li>
+                            <li>Office address: Hno 2-38, Goutham Nagar Colony, Chanda Nagar, Seriligampally, 500050</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="map">
+                        <h2>Maps</h2>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.82764170806894!2d78.32315343603096!3d17.49594483285412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93c914e4fcff%3A0x9b8c9a8c9f67ae8e!2ssss%20property!5e0!3m2!1sen!2sin!4v1712214058090!5m2!1sen!2sin"
+                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="google-reviews">
+                        <!-- Your Google reviews section here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact-us" id="c">
+        <div class="container">
+            <form class="contact-form" action="process.php" method="POST">
+                <h3>Contact Us</h3>
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+                <input type="email" id="email" placeholder="Mail Id" required>
+                <select id="interest" required>
+                    <option value="" disabled selected>Select your interest</option>
+                    <option value="open_plots">Open Plots</option>
+                    <option value="independent_houses">Independent Houses</option>
+                    <option value="marketing">Marketing</option>
+                </select>
+                <textarea id="message" placeholder="How Can we help you?" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        document.querySelector(".contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+    
+            // Collect user-entered data
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var interest = document.getElementById("interest").value;
+            var message = document.getElementById("message").value;
+    
+            // Compose the email body
+            var emailBody = "Name: " + name + "\n" +
+                "Phone Number: " + phone + "\n" +
+                "Email: " + email + "\n" +
+                "Interest: " + interest + "\n" +
+                "Message: " + message;
+    
+            // Send email using SMTP.js with SecureToken
+            Email.send({
+                SecureToken: "YOUR_SECURE_TOKEN_HERE",
+                To: 's.s.s.propertycompany@gmail.com',
+                From: "you@yourdomain.com",
+                Subject: "New inquiry from " + name,
+                Body: emailBody,
+            }).then(function(message) {
+                alert(message); // This will alert "OK" if successful
+                // Optionally, clear form fields or redirect the user here
+            });
+        });
+    </script>
+    
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">All rights are reserved by @SSS Proerty</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-media">
+                        
+                        <a href="https://www.facebook.com/profile.php?id=61557528345639"><img src="./images/ZAKOPIN.COM LANDING PAGE/Facebook.png" alt=""><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.s.s.s.propertycompany@gmail.com"><img src="./images/ZAKOPIN.COM LANDING PAGE/Mail.png" alt=""><i class="fab fa-mail"></i></a>
+                        <a href="https://www.instagram.com/s.s.s.property"><img src="./images/ZAKOPIN.COM LANDING PAGE/Instagram.png" alt=""><i class="fab fa-instagram"></i></a>
+                        <a href="https://chat.whatsapp.com/DXZvZ4ROhUL5mjAE7F2UNk"><img style="height: 40px;" src="./images/ZAKOPIN.COM LANDING PAGE/WhatsApp.png" alt=""><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        (function(d, w, c) {
+            w.ChatraID = '3dy4fJeok3Rmgv6CY';
+            var s = d.createElement('script');
+            w[c] = w[c] || function() {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            s.async = true;
+            s.src = 'https://call.chatra.io/chatra.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'Chatra');
+    </script>
+    <script>
+        // Function to show Home section
+        function showHome() {
+            document.getElementById("welcomeText").innerHTML = "Welcome to SSS Property";
+            document.getElementById("services").style.display = "none";
+            document.getElementById("about").style.display = "none";
+            document.getElementById("contact").style.display = "none";
+        }
+
+        // Function to show Services section
+        function showServices() {
+            document.getElementById("services").style.display = "block";
+            document.getElementById("about").style.display = "none";
+            document.getElementById("contact").style.display = "none";
+            document.getElementById("welcomeText").innerHTML = "Our Services";
+            document.getElementById("services").scrollIntoView();
+        }
+
+        // Function to show About Us section
+        function showAbout() {
+            document.getElementById("services").style.display = "none";
+            document.getElementById("about").style.display = "block";
+            document.getElementById("contact").style.display = "none";
+            document.getElementById("welcomeText").innerHTML = "About Us";
+            document.getElementById("about").scrollIntoView();
+        }
+
+        // Function to show Contact Us section
+        function showContact() {
+            document.getElementById("services").style.display = "none";
+            document.getElementById("about").style.display = "none";
+            document.getElementById("contact").style.display = "block";
+            document.getElementById("welcomeText").innerHTML = "Contact Us";
+            document.getElementById("contact").scrollIntoView();
+        }
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-RcKnigT4y3Bgtxr0J4XwuyHCP2fYi83k6+2r3glLGG/vKqBy4E9DzkEgrES9i9+WE52mt4n3HsO+LLWUvEIoIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
